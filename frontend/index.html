@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Background Remover</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .spinner {
+      border: 4px solid rgba(0, 0, 0, 0.1);
+      border-radius: 50%;
+      border-top: 4px solid #667eea;
+      width: 40px;
+      height: 40px;
+      animation: spin 1s linear infinite;
+      margin: 0 auto;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>🖼️ Background Remover</h1>
+
+    <!-- Image Upload -->
+    <label>
+      <span>Upload Image</span>
+      <input type="file" id="image" accept="image/*">
+    </label>
+
+    <!-- Background Type -->
+    <label>
+      <span>Background Type</span>
+      <select id="bgType">
+        <option value="color">Color Background</option>
+        <option value="image">Image Background</option>
+      </select>
+    </label>
+
+    <!-- Background Color -->
+    <label>
+      <span>Background Color</span>
+      <input type="color" id="bgColor" value="#FFFFFF">
+    </label>
+
+    <!-- Model Selection -->
+    <label>
+      <span>AI Model</span>
+      <select id="model">
+        <option value="bria">BRIA RMBG (Photos)</option>
+        <option value="isnet">ISNet (Logos/Text)</option>
+      </select>
+    </label>
+
+    <!-- Submit Button -->
+    <button onclick="processImage()" id="processBtn">
+      ⚙️ Process Image
+    </button>
+
+    <!-- Status Message with Spinner -->
+    <div id="statusMsg" class="message hidden">
+      <div class="spinner"></div>
+      <p id="statusText">Processing... please wait ⏳</p>
+      <p>This may take 10-30 seconds</p>
+    </div>
+
+    <!-- Error Message -->
+    <div id="errorMsg" class="message hidden">
+      <p id="errorText">❌ Error occurred</p>
+    </div>
+
+    <!-- Result Container -->
+    <div id="resultContainer" class="hidden">
+      <h2>✅ Processed Image:</h2>
+      <img id="result">
+      
+      <!-- Download Button -->
+      <button onclick="downloadImage()">
+        ⬇️ Download Image
+      </button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

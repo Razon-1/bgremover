@@ -1,0 +1,242 @@
+/* ===========================
+   BACKGROUND REMOVER - STYLES
+   =========================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.container {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 500px;
+  padding: 40px;
+}
+
+h1 {
+  font-size: 28px;
+  font-weight: 700;
+  text-align: center;
+  color: #1a202c;
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+label {
+  display: block;
+  margin-bottom: 20px;
+}
+
+label span {
+  font-size: 14px;
+  font-weight: 600;
+  color: #2d3748;
+  display: block;
+  margin-bottom: 8px;
+}
+
+input[type="file"],
+select,
+input[type="color"] {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: inherit;
+  transition: all 0.3s ease;
+}
+
+input[type="file"]:hover,
+select:hover,
+input[type="color"]:hover {
+  border-color: #cbd5e0;
+}
+
+input[type="file"]:focus,
+select:focus,
+input[type="color"]:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+input[type="color"] {
+  height: 50px;
+  cursor: pointer;
+}
+
+/* Buttons */
+button {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 20px;
+}
+
+#processBtn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+#processBtn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+}
+
+#processBtn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Download Button */
+#resultContainer button {
+  background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+  color: white;
+  margin-top: 16px;
+}
+
+#resultContainer button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(72, 187, 120, 0.3);
+}
+
+/* Messages */
+.message {
+  margin-top: 20px;
+  padding: 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  text-align: center;
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+#statusMsg {
+  background: #edf2f7;
+  color: #2d3748;
+}
+
+#errorMsg {
+  background: #fed7d7;
+  color: #c53030;
+}
+
+/* Spinner */
+.spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  border-top: 4px solid #667eea;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 12px;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+#statusText {
+  font-weight: 600;
+  color: #2d3748;
+}
+
+#statusMsg p:last-child {
+  font-size: 12px;
+  color: #718096;
+  margin-top: 8px;
+}
+
+#errorText {
+  font-weight: 600;
+  color: #c53030;
+}
+
+/* Result Container */
+#resultContainer {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 2px solid #e2e8f0;
+  animation: slideIn 0.3s ease;
+}
+
+#resultContainer h2 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #22543d;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+#result {
+  width: 100%;
+  border-radius: 8px;
+  border: 2px solid #c6f6d5;
+  margin-bottom: 16px;
+  max-height: 400px;
+  object-fit: contain;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .container {
+    padding: 24px;
+  }
+
+  h1 {
+    font-size: 24px;
+    margin-bottom: 24px;
+  }
+
+  button {
+    font-size: 15px;
+    padding: 12px;
+  }
+}
+
+/* Hidden class */
+.hidden {
+  display: none !important;
+}
