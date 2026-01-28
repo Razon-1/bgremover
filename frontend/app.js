@@ -1,10 +1,5 @@
 let currentProcessedImage = null;
 
-// Determine API endpoint based on environment
-const API_BASE_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
-  ? 'http://127.0.0.1:8000'
-  : window.location.protocol + '//' + window.location.hostname.replace(/frontend/, 'api');
-
 async function processImage() {
   const imageInput = document.getElementById('image');
   const bgType = document.getElementById('bgType').value;
@@ -40,10 +35,9 @@ async function processImage() {
   formData.append('model', model);
 
   try {
-    const apiUrl = `${API_BASE_URL}/api/process/`;
-    console.log("Sending to:", apiUrl);
+    console.log("Sending to: http://127.0.0.1:8000/api/process/");
     
-    const response = await fetch(apiUrl, {
+    const response = await fetch('http://127.0.0.1:8000/api/process/', {
       method: 'POST',
       body: formData,
       headers: {
