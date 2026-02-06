@@ -130,9 +130,6 @@ Tell me which option you prefer.
 - This is a development setup (not for production)
 - All images are processed locally - nothing is uploaded to cloud
 - First run may take 5+ minutes while AI model downloads
-- Processed images are returned as base64 data URLs
-![1769633534513](image/README/1769633534513.png)![1769633538049](image/README/1769633538049.png)![1769633718799](image/README/1769633718799.png)![1769633725156](image/README/1769633725156.png)![1769633744353](image/README/1769633744353.png)![1769633747624](image/README/1769633747624.png)
-## 🎓 Technologies Used
 
 - **Backend**: Django 5.0 + Django REST Framework
 - **Frontend**: HTML5, CSS3, Vanilla JavaScript ES6+
