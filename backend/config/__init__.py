@@ -1,2 +1,2 @@
-from .celery import app as celery_app
-__all__ = ('celery_app',)
+# Celery removed — no app exposed here.
+__all__ = ()

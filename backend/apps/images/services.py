@@ -1,4 +1,3 @@
-from rembg import remove
 from PIL import Image
 import io
 
@@ -38,7 +37,9 @@ def remove_background(image_bytes: bytes, model: str) -> bytes:
     img.save(buffer, format="PNG")
     buffer.seek(0)
 
-    # 4️⃣ AI background removal
+    # 4️⃣ AI background removal (import lazily to avoid hard dependency at import time)
+    from rembg import remove
+
     return remove(
         buffer.read(),
         model=model,

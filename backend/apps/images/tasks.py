@@ -1,10 +1,9 @@
-from celery import shared_task
 from django.core.files.base import ContentFile
 from .models import ImageJob
 from .services import remove_background, add_background
 
-@shared_task
 def process_image_task(job_id):
+    """Synchronous image processing (replaces Celery task)."""
     job = ImageJob.objects.get(id=job_id)
 
     try:
@@ -20,6 +19,6 @@ def process_image_task(job_id):
         job.status = 'DONE'
         job.save()
 
-    except Exception as e:
+    except Exception:
         job.status = 'FAILED'
         job.save()
